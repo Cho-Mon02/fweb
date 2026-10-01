@@ -7,7 +7,7 @@
     <title>페이지 제목 | [쇼핑몰명]</title>
     <link rel="stylesheet" href="css/common.css">
     <!-- 페이지 전용 css는 common.css 아래에 -->
-    <link rel="stylesheet" href="css/order-history-style.css">
+    <link rel="stylesheet" href="css/login.css">
 </head>
 
 <body>
@@ -72,7 +72,7 @@
                 <a href="list.html">베스트</a>
                 <a href="list.html">신상품</a>
                 <a href="list.html">특가</a>
-                <a href="detail.html">사과·배</a>
+                <a href="list.html">사과·배</a>
                 <a href="list.html">감귤·만감류</a>
                 <a href="list.html">포도·베리</a>
                 <a href="list.html">수입과일</a>
@@ -81,77 +81,32 @@
         </header>
         <!-- ===== 공통 헤더 끝 ===== -->
 
-        <main>
-            <div class="inner">
-                <div class="holder">
-                    <div class="sidebar-mypage">
-                        <div class="sidebar-mypage-title">
-                            <p>마이페이지</p>
-                        </div>
-                        <ul>
-                            <li><a href="#">구매내역</a></li>
-                            <li><a href="#">장바구니</a></li>
-                            <li><a href="#">회원정보 수정</a></li>
-                            <li><a href="#">로그아웃</a></li>
-                        </ul>
+        <main class="auth-main">
+            <div class="inner auth-inner">
+                <h1 class="auth-title">로그인</h1>
+
+                <form class="auth-form" action="/login" method="post">
+                    <div class="form-group">
+                        <label for="login-id" class="form-label">아이디</label>
+                        <input type="text" id="login-id" name="userId" class="form-input" placeholder="아이디를 입력하세요"
+                            required>
                     </div>
-                    <div class="order-history-box">
-                        <div class="box-title">
-                            <p>구매내역</p>
-                        </div>
-                        <div class="box-control">
-                            <ul class="control-select-date">
-                                <li><a href="#">1개월</a></li>
-                                <li><a href="#">3개월</a></li>
-                                <li><a href="#">6개월</a></li>
-                                <li><a href="#">전체</a></li>
-                            </ul>
-                            <div class="control-start-date">
-                                <input type="date" id="date-picker" name="start-date">
-                            </div>
-                            <div>~</div>
-                            <div class="control-end-date">
-                                <input type="date" id="date-picker" name="end-date">
-                            </div>
-                            <div class="control-button">
-                                <a href="#">조회</a>
-                            </div>
-                        </div>
-                        <div class="box-element">
-                            <div class="element-title">
-                                <div class="title-main">
-                                    <p><span>2026.09.28 주문</span> 주문번호 [0000000000]</p>
-                                </div>
-                                <div class="title-detail">
-                                    <a href="#">주문상세 ></a>
-                                </div>
-                            </div>
-                            <div class="element-contents">
-                                <div class="contents-image">
-                                    <img src="images/sample-apple.jpg">
-                                </div>
-                                <div class="contents-detail">
-                                    <div class="detail-status">
-                                        배송완료
-                                    </div>
-                                    <div class="detail-info1">
-                                        샤인머스캣 2kg 외 1건
-                                    </div>
-                                    <div class="detail-info2">
-                                        100,000원 · 1개
-                                    </div>
-                                </div>
-                                <div class="contents-buttons">
-                                    <div class="button-oncart">
-                                        장바구니 담기
-                                    </div>
-                                    <div class="button-rebuy">
-                                        재구매
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+
+                    <div class="form-group">
+                        <label for="login-pw" class="form-label">비밀번호</label>
+                        <input type="password" id="login-pw" name="userPw" class="form-input" placeholder="비밀번호를 입력하세요"
+                            required>
                     </div>
+
+                    <button type="submit" class="btn-auth-submit">로그인</button>
+                </form>
+
+                <div class="auth-links">
+                    <a href="#">아이디 찾기</a>
+                    <span class="divider" aria-hidden="true">|</span>
+                    <a href="#">비밀번호 찾기</a>
+                    <span class="divider" aria-hidden="true">|</span>
+                    <a href="signup.html" class="link-bold">회원가입</a>
                 </div>
             </div>
         </main>

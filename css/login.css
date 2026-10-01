@@ -1,0 +1,113 @@
+@charset "UTF-8";
+
+/* =========================================================
+   login.css — 로그인 페이지 전용 스타일
+   ========================================================= */
+
+/* 로그인 메인 영역 */
+.auth-main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 0 100px;
+}
+
+/* 중앙 정렬 폼 컨테이너 */
+.auth-inner {
+    width: 100%;
+    max-width: 420px;
+}
+
+/* 페이지 타이틀 */
+.auth-title {
+    font-size: 26px;
+    font-weight: 700;
+    text-align: center;
+    color: var(--color-ink);
+    margin-bottom: 36px;
+}
+
+/* 로그인 폼 */
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-ink);
+}
+
+/* 입력 필드 */
+.form-input {
+    width: 100%;
+    height: 48px;
+    padding: 0 16px;
+    border: 1.5px solid var(--color-line-strong);
+    border-radius: var(--radius);
+    background-color: var(--color-bg);
+    color: var(--color-ink);
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.form-input::placeholder {
+    color: #9e9e9e;
+}
+
+.form-input:focus {
+    border-color: var(--color-ink);
+}
+
+/* 로그인 버튼 */
+.btn-auth-submit {
+    width: 100%;
+    height: 50px;
+    margin-top: 8px;
+    border: 0;
+    border-radius: var(--radius);
+    background-color: var(--color-ink);
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-auth-submit:hover {
+    background-color: #000000;
+}
+
+/* 하단 서브 링크 (아이디 찾기 | 비밀번호 찾기 | 회원가입) */
+.auth-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin-top: 24px;
+    font-size: 13px;
+    color: var(--color-sub);
+}
+
+.auth-links a:hover {
+    color: var(--color-ink);
+}
+
+.auth-links .divider {
+    color: var(--color-line);
+    font-size: 11px;
+}
+
+.auth-links .link-bold {
+    font-weight: 700;
+    color: var(--color-ink);
+}
