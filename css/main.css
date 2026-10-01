@@ -1,0 +1,310 @@
+.banner-box {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 320px;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    text-decoration: none;
+}
+
+.banner-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.banner-box:hover .banner-img {
+    transform: scale(1.03);
+}
+
+/* 텍스트 가독성을 위한 어두운 그라데이션 오버레이 */
+.banner-overlay-content {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.2) 60%, transparent 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 2.5rem;
+    color: #ffffff;
+}
+
+.banner-badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    background-color: #10b981;
+    /* 산뜻한 에메랄드 그린 */
+    color: #ffffff;
+    padding: 0.25rem 0.6rem;
+    border-radius: 9999px;
+    width: fit-content;
+    margin-bottom: 0.75rem;
+}
+
+.banner-heading {
+    font-size: 1.75rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+}
+
+.banner-sub {
+    font-size: 0.95rem;
+    color: #e5e7eb;
+}
+
+/* 반응형 태블릿/PC 화면 대응 (높이 확장) */
+@media (min-width: 768px) {
+    .banner-box {
+        height: 340px;
+    }
+}
+
+/* 카테고리 섹션 전체 여백 */
+.category-section {
+    width: 100%;
+    padding-top: 1rem;
+    padding-bottom: 2.5rem;
+}
+
+/* 최대 너비 제한 및 중앙 정렬 */
+.category-container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+/* 섹션 타이틀 */
+.category-title {
+    font-size: 1.125rem;
+    /* 약 18px */
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 1.5rem;
+}
+
+/* 카테고리 아이템 목록 그리드 (반응형: 모바일 3열 -> PC 6열) */
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .category-grid {
+        grid-template-columns: repeat(6, 1fr);
+        gap: 1.25rem;
+    }
+}
+
+/* 개별 카테고리 링크 버튼 */
+.category-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* 원형 아이콘 틀 */
+.category-circle {
+    position: relative;
+    width: 76px;
+    height: 76px;
+    border-radius: 50%;
+    background-color: #f3f4f6;
+    /* 밝은 회색 플레이스홀더 배경 */
+    border: 1px solid #e5e7eb;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* 호버 시 살짝 떠오르고 테두리 강조 */
+.category-item:hover .category-circle {
+    transform: translateY(-3px);
+    border-color: #9ca3af;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.08);
+}
+
+/* 카테고리 텍스트 라벨 */
+.category-name {
+    margin-top: 0.625rem;
+    font-size: 0.8125rem;
+    /* 약 13px */
+    font-weight: 500;
+    color: #374151;
+    text-align: center;
+    transition: color 0.2s ease;
+}
+
+/* 원형 내부 이미지 처리 */
+.category-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* 원형 안에 찌그러짐 없이 꽉 채우기 */
+    display: block;
+}
+
+/* src가 비어있을 때 깨진 이미지 엑스박스 아이콘 숨김 처리 */
+.category-circle img[src=""],
+.category-circle img:not([src]) {
+    opacity: 0;
+}
+
+.category-item:hover .category-name {
+    color: #111827;
+    font-weight: 600;
+}
+
+.recommend-section {
+    width: 100%;
+    padding-top: 1rem;
+    padding-bottom: 4rem;
+}
+
+.recommend-container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.recommend-title {
+    font-size: 1.125rem;
+    /* 약 18px */
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 10px;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+}
+
+@media (min-width: 768px) {
+    .product-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.25rem;
+    }
+}
+
+/* 개별 상품 카드 컨테이너 */
+.product-card {
+    display: flex;
+    flex-direction: column;
+}
+
+/* 카드 전체 클릭 링크 (이미지 + 정보를 감싸는 링크) */
+.product-link {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+/* 마우스 올렸을 때 살짝 위로 뜨는 효과 */
+.product-link:hover {
+    transform: translateY(-3px);
+}
+
+/* 이미지 박스 */
+.product-image-box {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background-color: #f3f4f6;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.25rem;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 실제 삽입할 상품 이미지 (1:1 비율에 꽉 차고 깔끔하게 표시) */
+.product-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* 원본 비율 유지하면서 꽉 채우기 */
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+/* 호버 시 사진 살짝 확대 효과 (선택사항) */
+.product-link:hover .product-img {
+    transform: scale(1.03);
+}
+
+/* 이미지가 없을 때의 텍스트 라벨 */
+.product-img-label {
+    position: relative;
+    z-index: 1;
+    font-size: 0.75rem;
+    color: #9ca3af;
+}
+
+/* 상품 정보 영역 */
+.product-info {
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.product-name {
+    font-size: 0.8125rem;
+    /* 약 13px */
+    font-weight: 500;
+    color: #1f2937;
+    margin-bottom: 0.25rem;
+    transition: color 0.2s ease;
+}
+
+/* 링크 호버 시 상품명 색상 강조 */
+.product-link:hover .product-name {
+    color: #111827;
+    font-weight: 600;
+}
+
+.product-price {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: #111827;
+}
+
+/* 장바구니 담기 버튼 */
+.btn-cart {
+    display: block;
+    width: 100%;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    text-align: center;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: #4b5563;
+    background-color: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 0.25rem;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-cart:hover {
+    background-color: #f9fafb;
+    border-color: #9ca3af;
+    color: #111827;
+}

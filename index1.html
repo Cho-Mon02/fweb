@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[쇼핑몰명] 로그인</title>
+    <!-- FontAwesome 아이콘 사용 (검색, 장바구니, 마이페이지 아이콘용) -->
+    <style>
+        /* 기본 초기화 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        body {
+            background-color: #ffffff;
+            color: #333333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        a {
+            text-transform: none;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* ---------------- 헤더 영역 ---------------- */
+        header {
+            width: 100%;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        /* 상단 메인 헤더 (로고, 검색창, 유저 아이콘) */
+        .header-main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo-area {
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .logo-box {
+            border: 1px solid #ccc;
+            padding: 2px 6px;
+            font-size: 11px;
+            font-weight: normal;
+            vertical-align: middle;
+            margin-right: 4px;
+            color: #666;
+        }
+
+        .search-area {
+            flex: 0 1 500px;
+            position: relative;
+            margin: 0 20px;
+        }
+
+        .search-area input {
+            width: 100%;
+            padding: 10px 40px 10px 15px;
+            border: 1px solid #333333;
+            border-radius: 20px;
+            outline: none;
+            font-size: 14px;
+        }
+
+        .search-area .fa-search {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .header-icons {
+            display: flex;
+            gap: 20px;
+            font-size: 20px;
+            color: #333;
+        }
+
+        .cart-icon {
+            position: relative;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -5px;
+            right: -8px;
+            background-color: #333;
+            color: #fff;
+            font-size: 10px;
+            padding: 2px 5px;
+            border-radius: 50%;
+        }
+
+        /* 내비게이션 메뉴 바 */
+        .nav-bar {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .category-menu {
+            font-weight: 700;
+            margin-right: 30px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+        }
+
+        .menu-list {
+            display: flex;
+            gap: 20px;
+            color: #444;
+        }
+
+        .menu-list li {
+            cursor: pointer;
+        }
+
+        .menu-list li:hover {
+            color: #000;
+        }
+
+        /* ---------------- 메인 로그인 영역 ---------------- */
+        main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 60px 20px;
+        }
+
+        .login-container {
+            width: 100%;
+            max-width: 450px;
+            text-align: center;
+        }
+
+        .login-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 40px;
+            letter-spacing: -0.5px;
+        }
+
+        .login-form {
+            text-align: left;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #111;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 14px 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .form-group input:focus {
+            border-color: #333;
+        }
+
+        .form-group input::placeholder {
+            color: #aaa;
+            font-size: 13px;
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 15px;
+            background-color: #1a1a1a;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.2s;
+        }
+
+        .login-btn:hover {
+            background-color: #333333;
+        }
+
+        /* 로그인 하단 링크 */
+        .login-links {
+            margin-top: 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            font-size: 13px;
+            color: #666;
+        }
+
+        .login-links a:hover {
+            text-decoration: underline;
+        }
+
+        .divider {
+            width: 1px;
+            height: 12px;
+            background-color: #ddd;
+        }
+
+        /* ---------------- 푸터 영역 ---------------- */
+        footer {
+            width: 100%;
+            background-color: #f9f9f9;
+            border-top: 1px solid #e2e8f0;
+            padding: 30px 20px;
+            font-size: 12px;
+            color: #777;
+            line-height: 1.8;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .company-name {
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: #555;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 헤더 -->
+    <header>
+        <div class="header-main">
+            <!-- 로고 -->
+            <div class="logo-area">
+                <a href="index.html"><span class="logo-box">LOGO</span>[쇼핑몰명]</a>
+            </div>
+            <!-- 검색창 -->
+            <div class="search-area">
+                <input type="text" placeholder="찾으시는 과일을 검색하세요">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <!-- 마이페이지/장바구니 아이콘 -->
+            <div class="header-icons">
+                <a href="#"><i class="fa-regular fa-user"></i></a>
+                <a href="#" class="cart-icon">
+                    <i class="fa-solid fa-basket-shopping"></i>
+                    <span class="cart-count">2</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- 카테고리 내비게이션 -->
+        <div class="nav-bar">
+            <div class="category-menu">
+                <i class="fa-solid fa-bars"></i> 전체 카테고리
+            </div>
+            <ul class="menu-list">
+                <li>베스트</li>
+                <li>신상품</li>
+                <li>특가</li>
+                <li>사과·배</li>
+                <li>감귤·만감류</li>
+                <li>포도·베리</li>
+                <li>수입과일</li>
+                <li>선물세트</li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- 메인 콘텐츠 (로그인 폼) -->
+    <main>
+        <div class="login-container">
+            <h2 class="login-title">로그인</h2>
+
+            <form class="login-form" action="#" method="POST">
+                <!-- 아이디 입력 -->
+                <div class="form-group">
+                    <label for="username">아이디</label>
+                    <input type="text" id="username" placeholder="아이디를 입력하세요" required>
+                </div>
+                <!-- 비밀번호 입력 -->
+                <div class="form-group">
+                    <label for="password">비밀번호</label>
+                    <input type="password" id="password" placeholder="비밀번호를 입력하세요" required>
+                </div>
+                <!-- 로그인 버튼 -->
+                <button type="submit" class="login-btn">로그인</button>
+            </form>
+
+            <!-- 하단 메뉴 -->
+            <div class="login-links">
+                <a href="#">아이디 찾기</a>
+                <span class="divider"></span>
+                <a href="#">비밀번호 찾기</a>
+                <span class="divider"></span>
+                <a href="#">회원가입</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- 푸터 -->
+    <footer>
+        <div class="footer-container">
+            <div class="company-name">[회사명]</div>
+            <div>대표 [이름] · 사업자등록번호 [000-00-00000] · 통신판매업 [신고번호]</div>
+            <div>주소 [주소] · 고객센터 [전화번호]</div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

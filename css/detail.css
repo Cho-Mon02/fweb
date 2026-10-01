@@ -1,0 +1,333 @@
+/* ==========================================================================
+   상품 상세 페이지 레이아웃 및 이미지 스타일
+   ========================================================================== */
+
+.product-detail-page {
+    width: 100%;
+    padding-top: 1.5rem;
+    padding-bottom: 5rem;
+    color: #111827;
+}
+
+/* 1. 브레드크럼 */
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.75rem;
+    color: #9ca3af;
+    margin-bottom: 1.5rem;
+}
+
+.breadcrumb a {
+    color: #6b7280;
+    text-decoration: none;
+}
+
+.breadcrumb a:hover {
+    color: #111827;
+}
+
+.breadcrumb .divider {
+    font-size: 0.7rem;
+    color: #9ca3af;
+}
+
+/* 2. 상품 상단 영역 (좌우 2단 배치) */
+.product-top-section {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    margin-bottom: 4rem;
+}
+
+@media (min-width: 860px) {
+    .product-top-section {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 3.5rem;
+    }
+}
+
+/* 좌측 갤러리 영역 */
+.product-gallery {
+    flex: 1;
+    width: 100%;
+    max-width: 520px;
+    margin: 0 auto;
+}
+
+/* 대표 이미지 박스 */
+.main-image-box {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background-color: #f3f4f6;
+    border: 1px solid #e5e7eb;
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 대표 이미지 */
+.product-main-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+}
+
+/* 썸네일 리스트 */
+.thumb-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.75rem;
+    margin-top: 0.75rem;
+}
+
+.thumb-box {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    background-color: #f3f4f6;
+    border: 1px solid #e5e7eb;
+    border-radius: 2px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.thumb-box.active {
+    border-color: #111827;
+}
+
+.product-thumb-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+}
+
+/* 우측 상품 정보 및 주문 영역 */
+.product-order-info {
+    flex: 1;
+    width: 100%;
+}
+
+.product-category-sub {
+    display: block;
+    font-size: 0.75rem;
+    color: #6b7280;
+    margin-bottom: 0.5rem;
+}
+
+.product-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 0.25rem;
+}
+
+.product-summary {
+    font-size: 0.8125rem;
+    color: #6b7280;
+    margin-bottom: 1.25rem;
+}
+
+.product-price {
+    font-size: 1.625rem;
+    font-weight: 700;
+    color: #111827;
+    padding-bottom: 1.25rem;
+    border-bottom: 2px solid #111827;
+}
+
+.product-meta-table {
+    padding: 1.25rem 0;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.meta-row {
+    display: flex;
+    font-size: 0.8125rem;
+    line-height: 1.8;
+}
+
+.meta-th {
+    width: 80px;
+    color: #6b7280;
+    flex-shrink: 0;
+}
+
+.meta-td {
+    color: #374151;
+}
+
+.order-form {
+    margin-top: 1.25rem;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 0.35rem;
+}
+
+.select-option {
+    width: 100%;
+    padding: 0.65rem 0.75rem;
+    font-size: 0.8125rem;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    background-color: #fff;
+    outline: none;
+}
+
+.select-option:focus {
+    border-color: #111827;
+}
+
+.input-qty {
+    width: 100px;
+    padding: 0.55rem 0.75rem;
+    font-size: 0.875rem;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    outline: none;
+}
+
+.action-btn-group {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1.75rem;
+}
+
+.btn-detail-cart,
+.btn-detail-buy {
+    flex: 1;
+    height: 48px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-detail-cart {
+    background-color: #ffffff;
+    border: 1px solid #111827;
+    color: #111827;
+}
+
+.btn-detail-cart:hover {
+    background-color: #f9fafb;
+}
+
+.btn-detail-buy {
+    background-color: #111827;
+    border: 1px solid #111827;
+    color: #ffffff;
+}
+
+.btn-detail-buy:hover {
+    background-color: #000000;
+}
+
+/* 3. 탭 메뉴 */
+.detail-tab-menu {
+    display: flex;
+    border-bottom: 1px solid #e5e7eb;
+    margin-bottom: 2.5rem;
+}
+
+.tab-item {
+    flex: 1;
+    padding: 1rem 0;
+    text-align: center;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #6b7280;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.tab-item.active,
+.tab-item:hover {
+    color: #111827;
+    border-bottom: 2px solid #111827;
+    font-weight: 700;
+}
+
+/* 4. 하단 상세 본문 영역 */
+.detail-content-area {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5rem;
+}
+
+.block-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 0.875rem;
+}
+
+/* 본문 이미지 박스 */
+.content-img-box {
+    position: relative;
+    width: 100%;
+    background-color: #f3f4f6;
+    border: 1px solid #e5e7eb;
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content-img-box.large {
+    min-height: 480px;
+}
+
+.content-img-box.small {
+    min-height: 140px;
+}
+
+/* 본문 통이미지 */
+.content-banner-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    position: relative;
+    z-index: 2;
+}
+
+/* 이미지가 없을 때의 안내 텍스트 */
+.img-placeholder-text {
+    position: relative;
+    z-index: 1;
+    font-size: 0.8125rem;
+    color: #9ca3af;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 0.25rem 0.6rem;
+    border-radius: 4px;
+}
+
+/* src가 비어있을 때 깨진 이미지 아이콘 숨김 처리 */
+img[src=""],
+img:not([src]) {
+    opacity: 0;
+}
